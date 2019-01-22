@@ -82,24 +82,15 @@
 <script lang="ts">
   import Vue from 'vue'
   import Component from 'vue-class-component'
+  import { Prop, Emit } from 'vue-property-decorator'
 
-  @Component({
-    props: {
-      title: {
-        required: true,
-        type: String
-      },
-      open: {
-        required: true,
-        type: Boolean,
-        default: false
-      }
-    }
-  })
+  @Component
   export default class Modal extends Vue {
-    close() {
-      this.$emit('close', true)
-    }
+    @Prop({ required: true, type: String }) title: string
+    @Prop({ required: true, type: Boolean, default: false }) open
+
+    @Emit('close')
+    close(): void {}
   }
 </script>
 
