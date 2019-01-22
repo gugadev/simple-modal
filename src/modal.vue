@@ -86,8 +86,15 @@
 
   @Component
   export default class Modal extends Vue {
-    @Prop({ required: true, type: String }) title: string
-    @Prop({ required: true, type: Boolean, default: false }) open
+    @Prop({
+      required: true,
+      type: String
+    }) title: string
+    @Prop({
+      required: true,
+      type: Boolean,
+      default: false
+    }) open: boolean
 
     @Emit('close')
     close(): void {}
